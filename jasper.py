@@ -121,7 +121,7 @@ class Jasper(object):
                         salutation = "How can I be of service?"
                 self.mic.say(salutation)
         if random.choice(options)=="2":
-                call(["aplay", "/home/pi/R2D2a.wav"])
+                call(["aplay", "/home/pi/sonidos/R2D2a.wav"])
                 message = "I am not R 2 D 2"
                 self.mic.say(message)  
         if random.choice(options)=="3":
