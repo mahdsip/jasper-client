@@ -110,14 +110,25 @@ class Jasper(object):
                        stt_engine_class.get_active_instance())
 
     def run(self):
-        if 'first_name' in self.config:
-            salutation = ("How can I be of service, %s?"
+        options = ["1","2","3"]
+        if random.choice(options)=="1":
+                if 'first_name' in self.config:
+                        salutation = ("How can I be of service, %s?"
                           % self.config["first_name"])
-        else:
-            salutation = "How can I be of service?"
-        self.mic.say(salutation)
+                else:
+                        salutation = "How can I be of service?"
+                self.mic.say(salutation)
+        if random.choice(options)=="2":
+                call(["aplay", "/home/pi/R2D2a.wav"])
+                message = "I am not R 2 D 2"
+                self.mic.say(message)  
+        if random.choice(options)=="3":
+                messages = ["I am here", "Hey Hey", "Tell me something","Do you need something?",("How can i help you,%s?" % self.config["first_name"]),"M$
+                message = random.choice(messages)
+                self.mic.say(message)
 
-        conversation = Conversation("JASPER", self.mic, self.config)
+
+        conversation = Conversation("TIKI", self.mic, self.config)
         conversation.handleForever()
 
 if __name__ == "__main__":
@@ -148,4 +159,8 @@ if __name__ == "__main__":
         logger.error("Error occured!", exc_info=True)
         sys.exit(1)
 
-    app.run()
+    try:
+        app.run()
+    except Exception:
+        call(["/home/pi/reloadTiki"])
+
