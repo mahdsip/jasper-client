@@ -14,6 +14,8 @@ from client import stt
 from client import jasperpath
 from client import diagnose
 from client.conversation import Conversation
+from subprocess import call
+
 
 # Add jasperpath.LIB_PATH to sys.path
 sys.path.append(jasperpath.LIB_PATH)
