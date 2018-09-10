@@ -8,6 +8,7 @@ import logging
 
 import yaml
 import argparse
+import random
 
 from client import tts
 from client import stt
