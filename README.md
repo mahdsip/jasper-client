@@ -3,6 +3,17 @@ jasper-client
 
 This is an updated version from jasper-client, customized for acting as an arduino robot moving the robot in the direction dictated to jasper.
 
+The first of all is changing the name to TIKI
+
+nano jasper.py
+--Conversation = Conversation("TIKI", self.mic, self.config)
+
+jasper/static/keyword_phrases
+change JASPER for TIKI
+
+One way is by uploading a file containing the words you wish to include, into this tool: http://www.speech.cs.cmu.edu/tools/lmtool-new.html. Then, copy the resulting .dic and .lm file to replace the existing dictionary_persona.lm and languagemodel_persona.lm. Note that in the persona dictionary and language model we provide, we include a few other simple words to avoid false positives. It makes the model less likely to read "Jasper" when the word was actually not spoken.
+
+
 [![Build Status](https://travis-ci.org/jasperproject/jasper-client.svg?branch=master)](https://travis-ci.org/jasperproject/jasper-client) [![Coverage Status](https://img.shields.io/coveralls/jasperproject/jasper-client.svg)](https://coveralls.io/r/jasperproject/jasper-client) [![Codacy Badge](https://www.codacy.com/project/badge/3a50e1bc2261419894d76b7e2c1ac694)](https://www.codacy.com/app/jasperproject/jasper-client)
 
 Client code for the Jasper voice computing platform. Jasper is an open source platform for developing always-on, voice-controlled applications.
